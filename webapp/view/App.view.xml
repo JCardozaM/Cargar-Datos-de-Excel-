@@ -1,0 +1,99 @@
+<mvc:View controllerName="JRNCM.excel.controller.App"
+        xmlns:mvc="sap.ui.core.mvc"
+        displayBlock="true"
+        xmlns="sap.m"
+        xmlns:u="sap.ui.unified"> 
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>title}">
+                    <content>
+                        <u:FileUploader id="fileUpload" 
+                                        buttonText="{i18n>btUploadExcel}"
+                                        multiple="true" 
+                                        sameFilenameAllowed="true" 
+                                        fileType="xlsx,xls" 
+                                        change="uploadExcel"/>
+                            <Panel >
+                                <headerToolbar >
+                                    <OverflowToolbar >
+                                        <Title text="{i18n>textInformation}" class="fontweight" />
+                                    </OverflowToolbar>
+                                </headerToolbar>
+                            </Panel>
+                            <Table   class="myColor" items="{excelModel>/}"> 
+                                <columns >
+                                    <Column width="100px">
+                                        <header>
+                                            <Label text="{i18n>columnId}"/> 
+                                        </header>
+                                    </Column>
+                                    <Column width="auto">
+                                        <header>
+                                            <Label text="{i18n>columnName}"/>
+                                        </header>
+                                    </Column>
+                                    <Column >
+                                        <header>
+                                            <Label text="{i18n>columnDepartment}"/>
+                                        </header>
+                                    </Column>
+                                    <Column width="auto">
+                                        <header>
+                                            <Label text="{i18n>columnDepartmentDescr}"/>
+                                        </header>
+                                    </Column>
+                                    <Column width="auto">
+                                        <header>
+                                            <Label text="{i18n>columnJobCode}"/>
+                                        </header>
+                                    </Column>
+                                    <Column width="auto">
+                                        <header>
+                                            <Label text="{i18n>columnJobTitle}"/>
+                                        </header>
+                                    </Column>
+                                    <Column width="auto">
+                                        <header>
+                                            <Label text="{i18n>columnRate}"/>
+                                        </header>
+                                    </Column >
+                                    <Column width="auto" >
+                                        <header>
+                                            <Label text="{i18n>columnCurrency}"/>
+                                        </header>
+                                    </Column>
+                                    <Column width="auto">
+                                        <header>
+                                            <Label text="{i18n>columnStartDate}"/>
+                                        </header>
+                                    </Column>
+                                    <Column width="auto">
+                                        <header>
+                                            <Label text="{i18n>columnEndDate}"/>
+                                        </header>
+                                    </Column>
+                                </columns>
+                                    <items>
+                                        <ColumnListItem >
+                                            <cells>
+                                                <Text text="{excelModel>id}"/> 
+                                                <Input value="{excelModel>name}"/>
+                                                <Input value="{excelModel>department}"/>
+                                                <Input value="{excelModel>departmentDescrip}"/>
+                                                <Input value="{excelModel>jobCode}"/>
+                                                <Input value="{excelModel>jobTitle}"/>
+                                                <Input value="{excelModel>monthlyRate}"/>
+                                                <Text text="{excelModel>currency}"/>
+                                                <DatePicker value="{excelModel>startDate}"/>
+                                                <DatePicker value="{excelModel>endDate}"/>
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                            </Table>
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>
